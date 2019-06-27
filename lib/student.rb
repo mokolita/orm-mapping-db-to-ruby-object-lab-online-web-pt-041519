@@ -111,15 +111,23 @@ class Student
     end
   end 
   
+<<<<<<< HEAD
   def self.first_student_in_grade_10
   
     sql = <<-SQL
       SELECT * 
+=======
+  def self.return_student_in_grade_10
+  
+    sql = <<-SQL
+      SELECT *
+>>>>>>> 43112f8d1f5a97b605c555fd73bcdd6de02d1fd2
       FROM students
       WHERE grade = 10 
       LIMIT 1
     SQL
  
+<<<<<<< HEAD
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end.first 
@@ -136,5 +144,9 @@ class Student
     DB[:conn].execute(sql, number).map do |row|
       self.new_from_db(row)
     end
+=======
+    first_student = DB[:conn].execute(sql)
+    return first_student
+>>>>>>> 43112f8d1f5a97b605c555fd73bcdd6de02d1fd2
   end 
 end
